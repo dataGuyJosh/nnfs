@@ -27,7 +27,7 @@ layer2_outputs = np.dot(layer1_outputs, np.array(weights2).T) + biases2
 print(layer2_outputs)
 
 # now let's do this with multiple layers
-
+# set a seed for random so our output matches tutorial
 np.random.seed(0)
 
 # these input values can get out of hand in hidden layers, so let's scale them between -1 & 1
