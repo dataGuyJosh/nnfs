@@ -42,3 +42,21 @@ import matplotlib.pyplot as plt
 X, y = spiral_data(100, 3)
 plt.scatter(X[:, 0], X[:, 1], c=y, cmap="brg")
 # plt.show()
+
+
+# Part 6
+# rectified linear is fast, but loses meaning for numbers less than 0 (as they are all 0)
+# how can we make negative values positive without removing the meaning of each number?
+# we can't (for example) just make all values absolute as -9 would become 9
+# i.e. we lose the ability to differentiate
+# using euler's number we can guarantee all numbers are positive without losing meaning
+# y = e^x
+# in theory we don't need to use euler's number but it will help later on
+# once we do this, we can normalise the values between 0 & 1
+# this process of exponentiation and normalisation is called softmax!
+
+# an issue with exponentiation is that it quickly produces huge values
+# a simple solution is to subtract the largest value in each layer from every value in that layer
+# e.g. 1 2 3 would become -2 -1 0
+# because the largest value is 0, all values can only ever be between 0 & 1
+# this is identical once normalised so we're not breaking anything by doing this!
