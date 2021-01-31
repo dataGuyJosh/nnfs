@@ -54,6 +54,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap="brg")
 # in theory we don't need to use euler's number but it will help later on
 # once we do this, we can normalise the values between 0 & 1
 # this process of exponentiation and normalisation is called softmax!
+# Input --> Exponentiate --> Normalize --> Output
 
 # an issue with exponentiation is that it quickly produces huge values
 # a simple solution is to subtract the largest value in each layer from every value in that layer
