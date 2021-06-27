@@ -93,3 +93,10 @@ b = 5.2
 # print(np.log(b))
 # print(math.e ** np.log(b))
 
+'''
+Part 8 - Implementing Loss
+If a softmax output is 0 and is identified as a class target, negative log will return infinity (infinite loss), 
+which isn't inherently wrong as it indicates an "infinitely wrong" guess.
+The issue is that when we take the mean of our results to calculate batch loss we get infinity.
+One option to handle this is to "clip" values in the range by an insignificant number e.g. 1e-7 such that we never get 0 
+'''
