@@ -25,3 +25,10 @@ list_of_lists = [[1, 2, 3], [4, 5, 6]]
 The shape of the 2D array above is (2, 3)
 
 A tensor is an object which CAN be represented as an array, it is not equivalent though.
+
+# Part 4 - Batches, Layers and Objects
+Why do we perform operations in batches in ML?
+- GPUs can be used to perform simple calculations in parallel
+- helps with generalisation i.e. rather than showing a machine one example at a time, show it multiple
+
+Higher batch sizes makes it easier for a neural network to fit data, however too high a batch size can lead to overfitting!
