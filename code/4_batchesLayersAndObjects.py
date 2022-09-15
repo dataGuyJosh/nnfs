@@ -53,8 +53,7 @@ class Layer_Dense:
         self.output = np.dot(inputs, self.weights) + self.biases
 
 
-num_inputs = len(X[0]) # 4
-print(num_inputs)
+num_inputs = len(X[0])  # 4
 layer1 = Layer_Dense(num_inputs, 5)
 layer2 = Layer_Dense(5, 2)
 
