@@ -58,3 +58,40 @@ Why is rectified linear such a good activation function? It's non-linear AND fas
 
 Why are more neurons per layer useful? They provide additional "areas of effect" to shape the model to fit data (similar to segments on a 2D graph).
 
+# Part 6 - Softmax Activation
+Why not just stick with the rectified linear activation function?
+- the first step in training a model is "how wrong is this model?" --> accuracy is not a good indication of that
+```python
+# if we're just "predicting", then the most accurate value is the largest
+# output 1 is the largest and therefore most accurate
+layer_outputs = [4.8, 1.21, 2.385]
+
+# output 1 is the largest BUT output 2 & 3 are much closer than in the previous set
+layer_outputs = [4.8, 4.79, 4.25]
+```
+
+In the example above, we can see that the bottom set of outputs are more desirable even though both models have equivalent accuracy (as their max values are both 4.8). 
+
+The rectified Linear activation function 
+- is exclusive in that there is no relation between neurons involved. 
+- there also isn't any "bounding" i.e. no upper limit on values
+- clips any negative values, which can potentially be a large portion of the dataset
+
+What is our end objective?
+- we want the output values to be a "probability distribution"
+  - neuron to neuron values are normalized
+  - we can measure "how right/wrong" a prediction is
+
+Exponential Function
+- y = e ^ x
+- solves the negativity issue without losing the meaning of negative values i.e. 1 != -1
+
+Softmax
+- Softmax is exponentiation & normalization
+
+Input | Exponentiate | Normalize | Output
+-|-|-|-
+[1, 2, 3] | [e^1, e^2, e^3] | [ (e^1)/(sum(e^1+e^2+e^3)), <br> (e^2)/(sum(e^1+e^2+e^3)), <br> (e^3)/(sum(e^1+e^2+e^3)) ] | [0.09, 0.24, 0.67]
+
+An issue with exponentiation is that values become massive quickly, a solution to this is to subtract the largest value prior to exponentiation making all values negative or 0. After exponentiation, our range is between 0 & 1.
+
