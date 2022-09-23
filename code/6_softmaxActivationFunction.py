@@ -53,6 +53,8 @@ class Activation_ReLU:  # ReLU --> Rectified Linear Unit
 class Activation_Softmax:
     def forward(self, inputs):
         # subtracting max to avoid overflow error
+        # axis = 1 adds rows
+        # keepdims=True retains dimensions of original matrix
         exp_values = np.exp(inputs - np.max(inputs, axis=1, keepdims=True))
         probabilities = exp_values / np.sum(exp_values, axis=1, keepdims=True)
         self.output = probabilities

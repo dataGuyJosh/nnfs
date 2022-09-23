@@ -91,7 +91,7 @@ Softmax
 
 Input | Exponentiate | Normalize | Output
 -|-|-|-
-[1, 2, 3] | [e^1, e^2, e^3] | [ (e^1)/(sum(e^1+e^2+e^3)), <br> (e^2)/(sum(e^1+e^2+e^3)), <br> (e^3)/(sum(e^1+e^2+e^3)) ] | [0.09, 0.24, 0.67]
+[1, 2, 3] | [e^1, e^2, e^3] | [ (e^1)/(e^1+e^2+e^3), <br> (e^2)/(e^1+e^2+e^3), <br> (e^3)/(e^1+e^2+e^3) ] | [0.09, 0.24, 0.67]
 
-An issue with exponentiation is that values become massive quickly, a solution to this is to subtract the largest value prior to exponentiation making all values negative or 0. After exponentiation, our range is between 0 & 1.
+An issue with exponentiation is that values become massive quickly, a solution to this is to subtract the largest value prior to exponentiation making all values negative or 0. After exponentiation, we normalize our range between 0 & 1.
 
