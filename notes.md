@@ -95,3 +95,31 @@ Input | Exponentiate | Normalize | Output
 
 An issue with exponentiation is that values become massive quickly, a solution to this is to subtract the largest value prior to exponentiation making all values negative or 0. After exponentiation, we normalize our range between 0 & 1.
 
+# Part 7 - Calculating Loss with Categorical Cross-Entropy
+In order to do backpropagation and optimization, we need to have some measure of how "wrong" the model is (a metric of error). For this, we use a loss function. In our case, with a softmax classifier, we'll be using categorical cross-entropy.
+
+A model will output a probability distribution (confidence score), this means we have more information than just "accuracy" (whether a prediction was/was not correct) to train the model.
+
+Categorical Cross-Entropy: the negative sum of the target value multiplied by the log of the predicted value for each value in the distribution. This simplifies to the negative log of the target classes predicted value (due to one-hot encoding).
+
+L_i = -log(yi,k)
+- L_i >> sample loss value
+- i >> i-th same in a set
+- k >> target label index, index of correct class probability
+- y >> predicted values
+
+
+One-hot Encoding: a vector of n-classes, where the index of the target class is 1, while all other indexes are of value 0.
+```
+Classes: 2
+Label: 1
+One-hot: [0,1]
+
+Classes: 3
+Label: 0
+One-hot: [1,0,0]
+```
+
+Logarithms
+- Natural Log: y = log_e * x = ln(x)
+- e ~ 2.718
