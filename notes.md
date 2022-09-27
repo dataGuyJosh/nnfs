@@ -123,3 +123,9 @@ One-hot: [1,0,0]
 Logarithms
 - Natural Log: y = log_e * x = ln(x)
 - e ~ 2.718
+
+
+# Part 8 - Implementing Loss
+We've found a problem! The negative log of 0 is infinity, technically this just means an output is infinitely wrong (which is correct) BUT it becomes a problem when we want to calculate the batch loss by taking a mean. A solution to this is to "clip" the values by a very small amount (e.g. 1e-7) in order to avoid dealing with infinity. This makes our new range 1e-y to 1 - 1e-7.
+
+How do we decrease loss? We update the weights and biases! More info in later sections.
