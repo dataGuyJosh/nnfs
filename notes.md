@@ -129,3 +129,13 @@ Logarithms
 We've found a problem! The negative log of 0 is infinity, technically this just means an output is infinitely wrong (which is correct) BUT it becomes a problem when we want to calculate the batch loss by taking a mean. A solution to this is to "clip" the values by a very small amount (e.g. 1e-7) in order to avoid dealing with infinity. This makes our new range 1e-y to 1 - 1e-7.
 
 How do we decrease loss? We update the weights and biases! More info in later sections.
+
+# Part 9 - Introducing Optimization and Derivatives
+How do we find the best weight/bias combinations?
+- use random values and record lowest loss? trash
+- adjust weights & biases by a small amount? better but still trash
+- using numerical derivatives? better but essentially brute forcing the problem
+
+Why are these methods not great?
+- we shouldn't be treating each weight/bias identically
+- we're likely just finding a local minimum
